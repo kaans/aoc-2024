@@ -9,7 +9,7 @@ fn get_input() -> (Vec<u32>, Vec<u32>) {
     let content = fs::read_to_string("input.txt").expect("Something went wrong reading the file") ;
 
     let (left, right): (Vec<_>, Vec<_>)= content.lines()
-        .map(|line| line.split("   "))
+        .map(|line| line.split_whitespace())
         .map(|mut s| (s.next().unwrap(), s.next().unwrap()))
         .map(|(left, right)| (left.parse::<u32>().unwrap(), right.parse::<u32>().unwrap()))
         .unzip();
